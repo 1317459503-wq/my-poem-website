@@ -8,317 +8,153 @@
     <style>
         /* 重置样式 */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        /* 基础布局 - 针对移动端优化 */
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: fixed;
-            touch-action: none;
-        }
+body {
+     font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+  font-weight: 500;
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: #000;
-            color: #fff;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overscroll-behavior: none;
-        }
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
 
-        /* 容器 */
-        .container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+}
 
-        /* 页面 */
-        .page {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-            backface-visibility: hidden;
-        }
+.page.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .page.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.page-content {
+    text-align: center;
+    max-width: 85%;
+}
 
-        /* 内容区域 */
-        .page-content {
-            text-align: center;
-            max-width: 85%;
-            width: 100%;
-            padding: 0 20px;
-        }
+.line {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
 
-        /* 诗句行 */
-        .line {
-            font-size: clamp(22px, 5vw, 28px);
-            line-height: 1.8;
-            margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
+}
 
-        .line.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.line.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        /* 高亮文字 */
-        .highlight {
-            color: #FF6666;
-            font-weight: 700;
-            text-shadow: 0 0 15px rgba(255, 102, 102, 0.7);
-            position: relative;
-            font-size: 1.15em;
-            display: inline-block;
-            transform: scale(1.05);
-            transform-origin: center bottom;
-            margin: 0 3px;
-            padding: 0 4px;
-            animation: highlight-pulse 2s infinite alternate;
-        }
+.highlight {
+    color: #FF6666;
+    font-weight: 700;
+   text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    position: relative;
+    padding: 0 2px;
+    font-size: 110%;
+  display: inline-block;
+  transform: scale(1.05);
+  transform-origin: center bottom;
+  margin: 0 2px; /* 左右外间距 */
+    padding: 0 3px; /* 左右内间距 */
+    letter-spacing: 0.5px;
+}
+.greek {
+    font-family: 'Times New Roman', serif;
+    color: #0f52ba;
+  font-weight: 1000;
+}
 
-        @keyframes highlight-pulse {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 102, 102, 0.6);
-                transform: scale(1.05);
-            }
-            100% {
-                text-shadow: 0 0 20px rgba(255, 102, 102, 0.9);
-                transform: scale(1.1);
-            }
-        }
+.page-number {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 14px;
+    opacity: 0.6;
+}
 
-        /* 希腊文字 */
-        .greek {
-            font-family: 'Times New Roman', serif;
-            color: #0f52ba;
-            font-weight: 900;
-            font-size: 1.3em;
-            text-shadow: 0 0 10px rgba(15, 82, 186, 0.5);
-            display: inline-block;
-            transform: scale(1.1);
-            margin: 0 5px;
-        }
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(to right, #FF6BCB, #6BCEFF);
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
 
-        /* 金色标题 */
-        .golden-title {
-            font-weight: bold;
-            color: #FFD700;
-            text-shadow: 
-                0 0 10px rgba(255, 215, 0, 0.8),
-                0 0 20px rgba(255, 165, 0, 0.6);
-            display: block;
-            animation: golden-pulse 2s infinite alternate;
-        }
+.swipe-hint {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+    animation: float 2s infinite ease-in-out;
+}
 
-        @keyframes golden-pulse {
-            0% {
-                text-shadow: 
-                    0 0 10px rgba(255, 215, 0, 0.8),
-                    0 0 20px rgba(255, 165, 0, 0.6);
-                transform: scale(1);
-            }
-            100% {
-                text-shadow: 
-                    0 0 15px rgba(255, 215, 0, 0.9),
-                    0 0 25px rgba(255, 165, 0, 0.7),
-                    0 0 35px rgba(255, 140, 0, 0.5);
-                transform: scale(1.02);
-            }
-        }
+.swipe-hint i {
+    margin-right: 5px;
+}
 
-        /* 页码 */
-        .page-number {
-            position: absolute;
-            bottom: 25px;
-            right: 25px;
-            font-size: 14px;
-            opacity: 0.6;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 1px;
-            z-index: 10;
-        }
+.music-note {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.3;
+}
 
-        /* 进度条 */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #FF6BCB, #6BCEFF);
-            transition: width 0.3s ease;
-            z-index: 1000;
-        }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
 
-        /* 滑动提示 */
-        .swipe-hint {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-            opacity: 0.7;
-            animation: float 2s infinite ease-in-out;
-            z-index: 5;
-            pointer-events: none;
-        }
+@keyframes sparkle {
+    0% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+    100% { opacity: 0.2; transform: scale(1); }
+}
 
-        .swipe-hint i {
-            margin-right: 8px;
-            color: #6BCEFF;
-            animation: bounce 1s infinite alternate;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); opacity: 0.7; }
-            50% { transform: translateY(-8px); opacity: 0.9; }
-        }
-
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-5px); }
-        }
-
-        /* 标题样式 */
-        h1 {
-            font-size: clamp(28px, 6vw, 36px);
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        /* 背景渐变 - 你的配色 */
-        .page-1 { 
-            background: linear-gradient(135deg, 
-                #0f0c29 0%, 
-                #302b63 40%, 
-                #24243e 100%
-            ); 
-        }
-        .page-2 { 
-            background: linear-gradient(135deg, 
-                #1a2a6c 0%, 
-                #b21f1f 50%, 
-                #fdbb2b 100%
-            ); 
-        }
-        .page-3 { 
-            background: linear-gradient(135deg, 
-                #3a1c71 0%, 
-                #d76d77 50%, 
-                #ffaf7b 100%
-            ); 
-        }
-        .page-4 { 
-            background: linear-gradient(135deg, 
-                #141e30 0%, 
-                #243b55 50%, 
-                #141e30 100%
-            ); 
-        }
-        .page-5 { 
-            background: linear-gradient(135deg, 
-                #2c3e50 0%, 
-                #4ca1af 50%, 
-                #2c3e50 100%
-            ); 
-        }
-        .page-6 { 
-            background: linear-gradient(135deg, 
-                #000000 0%, 
-                #434343 50%, 
-                #000000 100%
-            ); 
-        }
-        .page-7 { 
-            background: linear-gradient(135deg, 
-                #191970 0%, 
-                #2a5298 50%, 
-                #0033aa 100%
-            ); 
-        }
-        .page-8 { 
-            background: linear-gradient(135deg, 
-                #000811 0%, 
-                #001122 50%, 
-                #000811 100%
-            ); 
-        }
-        .page-9 { 
-            background: linear-gradient(135deg, 
-                #0f2027 0%, 
-                #203a43 50%, 
-                #2c5364 100%
-            ); 
-        }
-
-        /* 首页特别样式 */
-        #page1 .page-content {
-            padding-top: 10%;
-        }
-
-        /* 响应式调整 */
-        @media (max-width: 480px) {
-            .line {
-                font-size: 20px;
-                margin-bottom: 20px;
-            }
-            
-            .page-content {
-                max-width: 90%;
-                padding: 0 15px;
-            }
-            
-            .page {
-                padding: 15px;
-            }
-        }
-
-        /* 横屏模式 */
-        @media (orientation: landscape) and (max-height: 500px) {
-            .line {
-                font-size: 18px;
-                margin-bottom: 15px;
-                line-height: 1.6;
-            }
-            
-            .page-content {
-                padding-top: 30px;
-            }
-        }
-    </style>
+/* 每页不同的背景渐变 */
+.page-1 { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+.page-2 { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2b); }
+.page-3 { background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); }
+.page-4 { background: linear-gradient(135deg, #141e30, #243b55, #141e30); }
+.page-5 { background: linear-gradient(135deg, #2c3e50, #4ca1af, #2c3e50); }
+.page-6 { background: linear-gradient(135deg, #000000, #434343, #000000); }
+.page-7 { background: linear-gradient(135deg, #191970, #2a5298, #0033aa); }
+.page-8 { background: linear-gradient(135deg, #000811, #001122, #000811); }
+.page-final { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+       </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
