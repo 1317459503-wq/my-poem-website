@@ -13,14 +13,20 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: #000;
+            background: #000 !important;
             color: #fff;
-            overflow: hidden;
             height: 100vh;
             margin: 0;
             font-weight: 500;
+            position: relative;
         }
 
         .container {
@@ -46,6 +52,7 @@
             background-position: center;
             top: 0;
             left: 0;
+            background-attachment: fixed;
         }
 
         .page.active {
@@ -56,6 +63,8 @@
         .page-content {
             text-align: center;
             max-width: 85%;
+            position: relative;
+            z-index: 2;
         }
 
         .line {
@@ -77,20 +86,24 @@
             font-weight: 700;
             text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
             position: relative;
-            padding: 0 2px;
+            padding: 0;
             font-size: 110%;
             display: inline-block;
             transform: scale(1.05);
             transform-origin: center bottom;
-            margin: 0 2px;
-            padding: 0 3px;
-            letter-spacing: 0.5px;
+            margin: 0;
+            background: none !important;
+            -webkit-text-fill-color: #FF6666;
+            background-clip: text;
+            -webkit-background-clip: text;
         }
-        
+
         .greek {
             font-family: 'Times New Roman', serif;
             color: #0f52ba;
             font-weight: 1000;
+            background: none !important;
+            -webkit-text-fill-color: #0f52ba;
         }
 
         .page-number {
@@ -99,10 +112,11 @@
             right: 30px;
             font-size: 14px;
             opacity: 0.6;
+            z-index: 2;
         }
 
         .progress-bar {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 0%;
@@ -120,6 +134,7 @@
             font-size: 14px;
             opacity: 0.7;
             animation: float 2s infinite ease-in-out;
+            z-index: 2;
         }
 
         .swipe-hint i {
@@ -131,16 +146,26 @@
             50% { transform: translateY(-5px); }
         }
 
-        /* 每页不同的背景渐变 */
-        .page-1 { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
-        .page-2 { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); }
-        .page-3 { background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); }
-        .page-4 { background: linear-gradient(135deg, #141e30, #243b55, #141e30); }
-        .page-5 { background: linear-gradient(135deg, #2c3e50, #4ca1af, #2c3e50); }
-        .page-6 { background: linear-gradient(135deg, #000000, #434343, #000000); }
-        .page-7 { background: linear-gradient(135deg, #191970, #2a5298, #0033aa); }
-        .page-8 { background: linear-gradient(135deg, #000811, #001122, #000811); }
-        .page-final { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+        /* 修复背景问题 - 使用::before伪元素 */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .page-1::before { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+        .page-2::before { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); }
+        .page-3::before { background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); }
+        .page-4::before { background: linear-gradient(135deg, #141e30, #243b55, #141e30); }
+        .page-5::before { background: linear-gradient(135deg, #2c3e50, #4ca1af, #2c3e50); }
+        .page-6::before { background: linear-gradient(135deg, #000000, #434343, #000000); }
+        .page-7::before { background: linear-gradient(135deg, #191970, #2a5298, #0033aa); }
+        .page-8::before { background: linear-gradient(135deg, #000811, #001122, #000811); }
+        .page-final::before { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
 
         /* 响应式设计 */
         @media (max-width: 768px) {
@@ -268,9 +293,11 @@
                     成为她漫长征途里，<br>
                     <span style="font-size: 28px; font-weight: bold;
                         color: #FF6666;
-                        text-shadow: 0 0 10px, 0 0 20px orange;
+                        text-shadow: 0 0 10px rgba(255, 102, 102, 0.8), 0 0 20px rgba(255, 165, 0, 0.6);
                         display: block;
-                        margin-top: 10px;">
+                        margin-top: 10px;
+                        background: none !important;
+                        -webkit-text-fill-color: #FF6666;">
                         永不怯懦的副歌。
                     </span>
                 </div>
@@ -292,6 +319,15 @@
 
         const container = document.getElementById('container');
         const progressBar = document.getElementById('progressBar');
+
+        // 初始化背景
+        function initBackgrounds() {
+            document.body.style.backgroundColor = '#000';
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.backgroundColor = 'transparent';
+            });
+        }
 
         // 触摸事件
         container.addEventListener('touchstart', function(e) {
@@ -414,6 +450,7 @@
 
         // 初始化
         window.addEventListener('DOMContentLoaded', function() {
+            initBackgrounds();
             showLinesInPage(1);
             
             setTimeout(() => {
@@ -434,7 +471,22 @@
             }, 3000);
             
             updateProgress();
+            
+            // 修复highlight背景问题
+            const highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                highlight.style.backgroundColor = 'transparent';
+                highlight.style.webkitBackgroundClip = 'text';
+                highlight.style.backgroundClip = 'text';
+            });
         });
+        
+        // 防止默认行为
+        document.addEventListener('touchmove', function(e) {
+            if (e.scale !== 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
