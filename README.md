@@ -81,7 +81,7 @@
             font-size: clamp(22px, 5vw, 28px);
             line-height: 1.8;
             margin-bottom: 25px;
-            opacity: 1;
+            opacity: 0;
             transform: translateY(25px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: opacity, transform;
