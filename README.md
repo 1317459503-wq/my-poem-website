@@ -102,7 +102,7 @@
     text-shadow: 
         0 0 10px rgba(255, 102, 102, 0.8),
         0 0 20px rgba(255, 102, 102, 0.6);
-    display: inline;
+    display: block;
     animation: highlight-pulse 2s infinite alternate;
 }
 
@@ -141,7 +141,7 @@
                 0 0 10px rgba(255, 215, 0, 0.8),
                 0 0 20px rgba(255, 165, 0, 0.6);
             display: block;
-            animation: highlight-pulse 2s infinite alternate;
+            animation: golden-pulse 2s infinite alternate;
         }
 
         @keyframes golden-pulse {
