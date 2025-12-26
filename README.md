@@ -96,35 +96,19 @@
         }
 
         /* 高亮文字 */
-        .highlight {
+         .highlight {
             color: #FF6666;
             font-weight: 700;
-            text-shadow: 0 0 15px rgba(255, 102, 102, 0.7);
+            text-shadow: 0 0 8px rgba(255, 102, 102, 0.7);
             position: relative;
-            font-size: 1.15em;
+            padding: 0 2px;
+            font-size: 110%;
             display: inline-block;
             transform: scale(1.05);
             transform-origin: center bottom;
-            margin: 0 3px;
-            padding: 0 4px;
-            animation: highlight-pulse 2s infinite alternate;
-        }
-
-        @keyframes highlight-pulse {
-            0% {
-                text-shadow: 
-                    0 0 10px rgba(255, 215, 0, 0.8),
-                    0 0 20px rgba(255, 165, 0, 0.6);
-                transform: scale(1);
-            }
-            100% {
-                text-shadow: 
-                    0 0 15px rgba(255, 215, 0, 0.9),
-                    0 0 25px rgba(255, 165, 0, 0.7),
-                    0 0 35px rgba(255, 140, 0, 0.5);
-                transform: scale(1.02);
-            }
-        }
+            margin: 0 2px;
+            padding: 0 3px;
+            letter-spacing: 0.5px;}
 
         /* 希腊文字 */
         .greek {
