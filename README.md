@@ -110,16 +110,16 @@
             animation: highlight-pulse 2s infinite alternate;
         }
 
-        @keyframes highlight-pulse {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 102, 102, 0.6);
-                transform: scale(1.05);
-            }
-            100% {
-                text-shadow: 0 0 20px rgba(255, 102, 102, 0.9);
-                transform: scale(1.1);
-            }
-        }
+       @keyframes highlight-pulse {
+    0%, 100% {  
+        text-shadow: 0 0 12px rgba(255, 102, 102, 0.7);
+        transform: scale(1.05);
+    }
+    50% {
+        text-shadow: 0 0 18px rgba(255, 102, 102, 0.85);
+        transform: scale(1.07);
+    }
+}
 
         /* 希腊文字 */
         .greek {
