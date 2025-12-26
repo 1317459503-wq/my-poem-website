@@ -734,7 +734,7 @@ let autoHideTimeout;
 
 function initMusic() {
     // 使用你的音乐文件链接
-    const musicUrl = 'https://1317459503-wq.github.io/my-poem-website/music/bg-music.mp3';
+    const musicUrl = ['https://1317459503-wq.github.io/my-poem-website/music/bg-music.mp3'](https://github.com/1317459503-wq/my-poem-website/blob/main/music/%E5%9D%82%E6%9C%AC%E9%BE%99%E4%B8%80%E3%80%81Jaques%20Morelenbaum%E3%80%81Judy%20Kang%20-%20Merry%20Christmas%20Mr.%20Lawrence%20(%E5%9C%A3%E8%AF%9E%E5%BF%AB%E4%B9%90%EF%BC%8C%E5%8A%B3%E4%BC%A6%E6%96%AF%E5%85%88%E7%94%9F).mp3);
     
     bgMusic = new Howl({
         src: [musicUrl],
