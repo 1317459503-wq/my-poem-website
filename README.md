@@ -344,7 +344,7 @@
         <div class="page page-2" id="page2">
             <div class="page-content">
                 <div class="line">我与神明有一段友谊</div>
-                <div class="line" style="transition-delay: 0.3s">她带着<span class="highlight style="font-size: 28px; margin-top: 10px; display: block;">星辰坠落</span>般的光辉降临</div>
+                <div class="line" style="transition-delay: 0.3s">她带着<span class="highlight" style="font-size: 28px; margin-top: 10px; display: block;">星辰坠落</span>般的光辉降临</div>
             </div>
             <div class="page-number">2/9</div>
         </div>
