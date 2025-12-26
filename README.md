@@ -6,7 +6,6 @@
     <title>与神同行 | 致林泽满</title>
     <!-- 使用国内可访问的CDN -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
     <style>
         /* 重置样式 */
         * {
@@ -312,74 +311,11 @@
                 padding-top: 30px;
             }
         }
-        .music-player {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px 15px;
-    border-radius: 25px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: opacity 0.3s ease;
-}
-
-.music-player.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.play-btn {
-    background: #FF6BCB;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    transition: transform 0.3s ease;
-}
-
-.play-btn:hover {
-    transform: scale(1.1);
-    background: #FF4DB3;
-}
-
-.music-info {
-    font-size: 12px;
-    opacity: 0.9;
-    white-space: nowrap;
-}
-
-/* 移动端适配 */
-@media (max-width: 480px) {
-    .music-player {
-        bottom: 10px;
-        left: 10px;
-        padding: 8px 12px;
-    }
-    .music-info {
-        display: none;
-    }
-}
     </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
-    <div class="music-player" id="musicPlayer">
-    <button class="play-btn" id="playBtn">
-        <i class="fas fa-play"></i>
-    </button>
-    <div class="music-info" id="musicInfo">点击播放音乐</div>
-</div>
+
     <div class="container" id="container">
         <!-- 页面1：标题页 -->
         <div class="page page-1 active" id="page1">
@@ -408,6 +344,7 @@
         <div class="page page-3" id="page3">
             <div class="page-content">
                 <div class="line">生来就肩负</div>
+                <div class="line" style="transition-delay: 0.3s">在灰烬中<span class="highlight">重生</span>的使命</div>
                 <div class="line" style="transition-delay: 0.3s">在灰烬中<span class="golden-title" style="font-size: 28px; margin-top: 10px; display: block;">重生</span>的使命</div>
             </div>
             <div class="page-number">3/9</div>
@@ -727,84 +664,6 @@
                 }
             };
         })();
-        // ====== 背景音乐功能 ======
-let bgMusic = null;
-let isMusicLoaded = false;
-let autoHideTimeout;
-
-function initMusic() {
-    // 使用你的音乐文件链接
-    const musicUrl = ['https://1317459503-wq.github.io/my-poem-website/music/bg-music.mp3'](https://github.com/1317459503-wq/my-poem-website/blob/main/music/%E5%9D%82%E6%9C%AC%E9%BE%99%E4%B8%80%E3%80%81Jaques%20Morelenbaum%E3%80%81Judy%20Kang%20-%20Merry%20Christmas%20Mr.%20Lawrence%20(%E5%9C%A3%E8%AF%9E%E5%BF%AB%E4%B9%90%EF%BC%8C%E5%8A%B3%E4%BC%A6%E6%96%AF%E5%85%88%E7%94%9F).mp3);
-    
-    bgMusic = new Howl({
-        src: [musicUrl],
-        html5: true,
-        volume: 0.5,
-        loop: true,
-        onload: function() {
-            isMusicLoaded = true;
-            document.getElementById('musicInfo').textContent = '准备播放';
-            console.log('音乐加载成功');
-        },
-        onplay: function() {
-            document.getElementById('playBtn').innerHTML = '<i class="fas fa-pause"></i>';
-            document.getElementById('musicInfo').textContent = '播放中';
-            hideMusicPlayer();
-        },
-        onpause: function() {
-            document.getElementById('playBtn').innerHTML = '<i class="fas fa-play"></i>';
-            document.getElementById('musicInfo').textContent = '已暂停';
-        },
-        onloaderror: function() {
-            document.getElementById('musicInfo').textContent = '加载失败';
-            console.error('音乐加载失败，请检查链接：' + musicUrl);
-        }
-    });
-}
-
-function hideMusicPlayer() {
-    clearTimeout(autoHideTimeout);
-    autoHideTimeout = setTimeout(() => {
-        document.getElementById('musicPlayer').classList.add('hidden');
-    }, 3000);
-}
-
-function showMusicPlayer() {
-    document.getElementById('musicPlayer').classList.remove('hidden');
-    hideMusicPlayer();
-}
-
-// 播放/暂停控制
-document.getElementById('playBtn').addEventListener('click', function() {
-    if (!isMusicLoaded) {
-        initMusic();
-    }
-    
-    if (bgMusic && bgMusic.playing()) {
-        bgMusic.pause();
-    } else {
-        if (!bgMusic) initMusic();
-        bgMusic.play();
-    }
-    showMusicPlayer();
-});
-
-// 鼠标移入显示播放器
-document.addEventListener('mousemove', showMusicPlayer);
-document.addEventListener('touchstart', showMusicPlayer);
-
-// 页面加载完成后初始化音乐
-window.addEventListener('DOMContentLoaded', function() {
-    // 初始化音乐（但不自动播放）
-    initMusic();
-    
-    // 3秒后自动隐藏播放器
-    setTimeout(() => {
-        if (bgMusic && !bgMusic.playing()) {
-            document.getElementById('musicPlayer').classList.add('hidden');
-        }
-    }, 3000);
-});
     </script>
 </body>
 </html>
