@@ -6,7 +6,7 @@
     <title>与神同行 | 致林泽满</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 你的原始CSS代码 - 完全不变 */
+        /* 基础CSS保持不变，但删除.highlight相关样式 */
         * {
             margin: 0;
             padding: 0;
@@ -15,13 +15,13 @@
         }
 
         body {
-             font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             background: #000;
             color: #fff;
             overflow: hidden;
             height: 100vh;
             margin: 0;
-          font-weight: 500;
+            font-weight: 500;
         }
 
         .container {
@@ -73,24 +73,11 @@
             transform: translateY(0);
         }
 
-        .highlight {
-            color: #FF6666;
-            font-weight: 700;
-           text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
-            position: relative;
-            padding: 0 2px;
-            font-size: 110%;
-          display: inline-block;
-          transform: scale(1.05);
-          transform-origin: center bottom;
-          margin: 0 2px; /* 左右外间距 */
-            padding: 0 3px; /* 左右内间距 */
-            letter-spacing: 0.5px;
-        }
+        /* 只保留.greek样式 */
         .greek {
             font-family: 'Times New Roman', serif;
             color: #0f52ba;
-          font-weight: 1000;
+            font-weight: 1000;
         }
 
         .page-number {
@@ -126,21 +113,9 @@
             margin-right: 5px;
         }
 
-        .music-note {
-            position: absolute;
-            font-size: 20px;
-            opacity: 0.3;
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
-        }
-
-        @keyframes sparkle {
-            0% { opacity: 0.2; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
-            100% { opacity: 0.2; transform: scale(1); }
         }
 
         /* 每页不同的背景渐变 */
@@ -156,7 +131,6 @@
     </style>
 </head>
 <body>
-    <!-- 你的原始HTML代码 - 完全不变 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <div class="progress-bar" id="progressBar"></div>
@@ -172,17 +146,17 @@
                     <h1 style="font-size:32px;margin-bottom:10px;">与神同行</h1>
                 </div>
                 <div class="line show" style="transition-delay:0.4s">
-                    <p style="opacity:0.8;">谨以此，送给我心中珍贵的家人最好的朋友林泽满</p >
+                    <p style="opacity:0.8;">谨以此，送给我心中珍贵的家人最好的朋友林泽满</p>
                 </div>
             </div>
             <div class="page-number">1/9</div>
         </div>
         
-        <!-- 页面2：诗句 -->
+        <!-- 页面2：诗句 - 全部改用内联样式 -->
         <div class="page page-2" id="page2">
             <div class="page-content">
                 <div class="line">我与神明有一段友谊</div>
-                <div class="line" style="transition-delay:0.6s">她带着<span class="highlight">星辰坠落</span>般的光辉降临</div>
+                <div class="line" style="transition-delay:0.6s">她带着<span style="color:#FF6666; font-weight:bold;">星辰坠落</span>般的光辉降临</div>
             </div>
             <div class="page-number">2/9</div>
         </div>
@@ -191,7 +165,7 @@
         <div class="page page-3" id="page3">
             <div class="page-content">
                 <div class="line">生来就肩负</div>
-                <div class="line" style="transition-delay:0.6s">在灰烬中<span class="highlight">重生</span>的使命</div>
+                <div class="line" style="transition-delay:0.6s">在灰烬中<span style="color:#FF6666; font-weight:bold;">重生</span>的使命</div>
             </div>
             <div class="page-number">3/9</div>
         </div>
@@ -199,8 +173,8 @@
         <!-- 页面4：诗句 -->
         <div class="page page-4" id="page4">
             <div class="page-content">
-                <div class="line">我只是<span class="highlight">恰好</span></div>
-                <div class="line" style="transition-delay:0.6s">见证她<span class="highlight">羽翼尚浅时的脆弱</span></div>
+                <div class="line">我只是<span style="color:#FF6666; font-weight:bold;">恰好</span></div>
+                <div class="line" style="transition-delay:0.6s">见证她<span style="color:#FF6666; font-weight:bold;">羽翼尚浅时的脆弱</span></div>
             </div>
             <div class="page-number">4/9</div>
         </div>
@@ -208,8 +182,8 @@
         <!-- 页面5：诗句 -->
         <div class="page page-5" id="page5">
             <div class="page-content">
-                <div class="line">却因此获得这份<span class="highlight">殊荣</span>——</div>
-                <div class="line" style="transition-delay:0.6s">成为她抵御风暴的<span class="highlight">甲胄</span></div>
+                <div class="line">却因此获得这份<span style="color:#FF6666; font-weight:bold;">殊荣</span>——</div>
+                <div class="line" style="transition-delay:0.6s">成为她抵御风暴的<span style="color:#FF6666; font-weight:bold;">甲胄</span></div>
             </div>
             <div class="page-number">5/9</div>
         </div>
@@ -226,8 +200,8 @@
         <!-- 页面7：诗句 -->
         <div class="page page-7" id="page7">
             <div class="page-content">
-                <div class="line">我将它放在心底最<span class="highlight">寂静的深海</span></div>
-                <div class="line" style="transition-delay:0.6s">顿时万丈霞光<span class="highlight">撕裂亘古</span>的暗涌</div>
+                <div class="line">我将它放在心底最<span style="color:#FF6666; font-weight:bold;">寂静的深海</span></div>
+                <div class="line" style="transition-delay:0.6s">顿时万丈霞光<span style="color:#FF6666; font-weight:bold;">撕裂亘古</span>的暗涌</div>
             </div>
             <div class="page-number">7/9</div>
         </div>
@@ -235,8 +209,8 @@
         <!-- 页面8：诗句 -->
         <div class="page page-8" id="page8">
             <div class="page-content">
-                <div class="line">爱的泉眼在<span class="highlight">灵魂岩层</span>上苏醒</div>
-                <div class="line" style="transition-delay:0.6s"><span class="highlight">源源不断</span>的力量从我心底生出</div>
+                <div class="line">爱的泉眼在<span style="color:#FF6666; font-weight:bold;">灵魂岩层</span>上苏醒</div>
+                <div class="line" style="transition-delay:0.6s"><span style="color:#FF6666; font-weight:bold;">源源不断</span>的力量从我心底生出</div>
             </div>
             <div class="page-number">8/9</div>
         </div>
@@ -244,15 +218,11 @@
         <!-- 页面9：结束页 -->
         <div class="page page-final" id="page9">
             <div class="page-content">
-                <div class="line">于是我便能一万次<span class="highlight">投身世界灼热的裂缝</span></div>
-                <div class="line" style="transition-delay:0.6s">直到将我的<span class="highlight">脊骨</span>锻打成温柔的合金</div>
+                <div class="line">于是我便能一万次<span style="color:#FF6666; font-weight:bold;">投身世界灼热的裂缝</span></div>
+                <div class="line" style="transition-delay:0.6s">直到将我的<span style="color:#FF6666; font-weight:bold;">脊骨</span>锻打成温柔的合金</div>
                 <div class="line" style="transition-delay:1.2s; margin-top: 30px; font-size: 20px;">
                     成为她漫长征途里，<br>
-                    <span style="font-size: 28px; font-weight: bold; 
-                        color: #FF6666;
-                        text-shadow: 0 0 10px , 0 0 20px orange;
-                        display: block;
-                        margin-top: 10px;">
+                    <span style="font-size: 28px; font-weight: bold; color: #FF6666; display: block; margin-top: 10px;">
                         永不怯懦的副歌。
                     </span>
                 </div>
@@ -265,19 +235,17 @@
     </div>
 
     <script>
-        // 你的原始JS代码 - 完全不变
+        // JS保持不变
         let currentPage = 1;
-        const totalPages = 9;  // 注意：现在是9页！
+        const totalPages = 9;
         let isAnimating = false;
         let startY = 0;
         let endY = 0;
         let wheelTimeout;
 
-        // ====== 2. 获取DOM元素 ======
         const container = document.getElementById('container');
         const progressBar = document.getElementById('progressBar');
 
-        // ====== 3. 事件监听器 ======
         container.addEventListener('touchstart', function(e) {
             startY = e.touches[0].clientY;
         }, { passive: true });
@@ -323,7 +291,6 @@
             }, 100);
         });
 
-        // ====== 4. 翻页函数 ======
         function nextPage() {
             if (currentPage >= totalPages || isAnimating) return;
             
@@ -370,7 +337,6 @@
             }, 800);
         }
 
-        // ====== 5. 辅助函数 ======
         function showLinesInPage(pageNum) {
             const pageElement = document.getElementById(`page${pageNum}`);
             const lines = pageElement.querySelectorAll('.line:not(.show)');
@@ -394,7 +360,6 @@
             }
         }
 
-        // ====== 6. 初始化 ======
         window.addEventListener('DOMContentLoaded', function() {
             showLinesInPage(1);
             
