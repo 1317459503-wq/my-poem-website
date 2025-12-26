@@ -56,7 +56,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            opacity: 0;
+            opacity: 50%;
             transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: opacity, transform;
@@ -95,20 +95,30 @@
         }
 
         /* 高亮文字 */
-      .highlight {
-    color: #FF6666;
-    font-weight: 700;
-   text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
-    position: relative;
-    padding: 0 2px;
-    font-size: 110%;
-  display: inline-block;
-  transform: scale(1.05);
-  transform-origin: center bottom;
-  margin: 0 2px; /* 左右外间距 */
-    padding: 0 3px; /* 左右内间距 */
-    letter-spacing: 0.5px;
-}
+       .highlight {
+            color: #FF6666;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 102, 102, 0.7);
+            position: relative;
+            font-size: 1.15em;
+            display: inline-block;
+            transform: scale(1.05);
+            transform-origin: center bottom;
+            margin: 0 3px;
+            padding: 0 4px;
+            animation: highlight-pulse 2s infinite alternate;
+        }
+
+        @keyframes highlight-pulse {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 102, 102, 0.6);
+                transform: scale(1.05);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 102, 102, 0.9);
+                transform: scale(1.1);
+            }
+        }
         /* 希腊文字 */
         .greek {
             font-family: 'Times New Roman', serif;
