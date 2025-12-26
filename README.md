@@ -99,7 +99,6 @@
          .highlight {
             color: #FF6666;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(255, 102, 102, 0.7);
             position: relative;
             padding: 0 2px;
             font-size: 110%;
