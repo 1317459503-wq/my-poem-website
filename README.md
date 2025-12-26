@@ -108,6 +108,9 @@
             margin: 0 3px;
             padding: 0 4px;
             animation: highlight-pulse 2s infinite alternate;
+             outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    box-shadow: none !important;
         }
 
        @keyframes highlight-pulse {
