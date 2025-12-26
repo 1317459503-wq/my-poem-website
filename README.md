@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>与神同行 | 致林泽满</title>
-    <!-- 使用国内可访问的CDN -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* 重置样式 */
@@ -95,7 +94,7 @@
         }
 
         /* 高亮文字 */
-       .highlight {
+        .highlight {
             color: #FF6666;
             font-weight: 700;
             text-shadow: 0 0 15px rgba(255, 102, 102, 0.7);
@@ -119,6 +118,7 @@
                 transform: scale(1.1);
             }
         }
+
         /* 希腊文字 */
         .greek {
             font-family: 'Times New Roman', serif;
@@ -134,7 +134,7 @@
         /* 金色标题 */
         .golden-title {
             font-weight: bold;
-            color: #FF6666;
+            color: #FFD700;
             text-shadow: 
                 0 0 10px rgba(255, 215, 0, 0.8),
                 0 0 20px rgba(255, 165, 0, 0.6);
