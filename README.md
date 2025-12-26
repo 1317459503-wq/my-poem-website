@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -100,8 +99,8 @@
     font-weight: bold;
     color: #FF6666;
     text-shadow: 
-        0 0 10px rgba(255, 102, 0, 0.8),
-        0 0 20px rgba(255, 102, 0, 0.6);
+        0 0 10px rgba(255, 102, 102, 0.8),
+        0 0 20px rgba(255, 102, 102, 0.6);
     display: inline-block;
     animation: highlight-pulse 2s infinite alternate;
 }
@@ -109,15 +108,15 @@
 @keyframes highlight-pulse {
     0% {
         text-shadow: 
-            0 0 10px rgba(255, 102, 0, 0.8),
-            0 0 20px rgba(255, 102, 0, 0.6);
+            0 0 10px rgba(255, 102, 102, 0.8),
+            0 0 20px rgba(255, 102, 102, 0.6);
         transform: scale(1);
     }
     100% {
         text-shadow: 
-            0 0 15px rgba(255, 102, 0, 0.9),
-            0 0 25px rgba(255, 102, 0, 0.7),
-            0 0 35px rgba(255, 102, 0, 0.5);
+            0 0 15px rgba(255, 102, 102, 0.9),
+            0 0 25px rgba(255, 102, 102, 0.7),
+            0 0 35px rgba(255, 102, 102, 0.5);
         transform: scale(1.02);
     }
 }
