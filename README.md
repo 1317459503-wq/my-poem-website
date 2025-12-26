@@ -96,18 +96,30 @@
         }
 
         /* 高亮文字 */
-         .highlight {
+        .highlight {
             color: #FF6666;
             font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 102, 102, 0.7);
             position: relative;
-            padding: 0 2px;
-            font-size: 110%;
+            font-size: 1.15em;
             display: inline-block;
             transform: scale(1.05);
             transform-origin: center bottom;
-            margin: 0 2px;
-            padding: 0 3px;
-            letter-spacing: 0.5px;}
+            margin: 0 3px;
+            padding: 0 4px;
+            animation: highlight-pulse 2s infinite alternate;
+        }
+
+        @keyframes highlight-pulse {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 102, 102, 0.6);
+                transform: scale(1.05);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 102, 102, 0.9);
+                transform: scale(1.1);
+            }
+        }
 
         /* 希腊文字 */
         .greek {
@@ -332,7 +344,7 @@
         <div class="page page-2" id="page2">
             <div class="page-content">
                 <div class="line">我与神明有一段友谊</div>
-                <div class="line" style="transition-delay: 0.3s">她带着<span class="highlight">星辰坠落</span>般的光辉降临</div>
+                <div class="line" style="transition-delay: 0.3s">她带着<span class="highlight style="font-size: 28px; margin-top: 10px; display: block;">星辰坠落</span>般的光辉降临</div>
             </div>
             <div class="page-number">2/9</div>
         </div>
