@@ -344,7 +344,7 @@
         <div class="page page-3" id="page3">
             <div class="page-content">
                 <div class="line">生来就肩负</div>
-                <div class="line" style="transition-delay: 0.3s">在灰烬中<span class="highlight">重生</span>的使命</div>
+                <div class="line" style="transition-delay: 0.3s">在灰烬中<span class="golden-title" style="font-size: 28px; margin-top: 10px; display: block;">重生</span>的使命</div>
             </div>
             <div class="page-number">3/9</div>
         </div>
