@@ -95,30 +95,19 @@
         }
 
         /* 高亮文字 */
-       .highlight {
-    font-weight: bold;
+      .highlight {
     color: #FF6666;
-    text-shadow: 
-        0 0 10px rgba(255, 102, 102, 0.8),
-        0 0 20px rgba(255, 102, 102, 0.6);
-    display: inline-block;
-    animation: highlight-pulse 2s infinite alternate;
-}
-
-@keyframes highlight-pulse {
-    0% {
-        text-shadow: 
-            0 0 10px rgba(255, 102, 102, 0.8),
-            0 0 20px rgba(255, 102, 102, 0.6);
-        transform: scale(1);
-    }
-    100% {
-        text-shadow: 
-            0 0 15px rgba(255, 102, 102, 0.9),
-            0 0 25px rgba(255, 102, 102, 0.7),
-            0 0 35px rgba(255, 102, 102, 0.5);
-        transform: scale(1.02);
-    }
+    font-weight: 700;
+   text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    position: relative;
+    padding: 0 2px;
+    font-size: 110%;
+  display: inline-block;
+  transform: scale(1.05);
+  transform-origin: center bottom;
+  margin: 0 2px; /* 左右外间距 */
+    padding: 0 3px; /* 左右内间距 */
+    letter-spacing: 0.5px;
 }
         /* 希腊文字 */
         .greek {
