@@ -136,12 +136,12 @@
         /* 金色标题 */
         .golden-title {
             font-weight: bold;
-            color: #FFD700;
+            color: #FF6666;
             text-shadow: 
                 0 0 10px rgba(255, 215, 0, 0.8),
                 0 0 20px rgba(255, 165, 0, 0.6);
             display: block;
-            animation: golden-pulse 2s infinite alternate;
+            animation: highlight-pulse 2s infinite alternate;
         }
 
         @keyframes golden-pulse {
