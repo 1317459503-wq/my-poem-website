@@ -98,14 +98,14 @@
          .highlight {
             color: #FF6666;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+            text-shadow: 0 0 8px rgba(255, 102, 102, 0.6);
             position: relative;
-            padding: 0;
+            padding: 0.4px;
             font-size: 110%;
             display: inline-block;
             transform: scale(1.05);
             transform-origin: center bottom;
-            margin: 0;
+            margin: 0.3px;
             background: none !important;
             -webkit-text-fill-color: #FF6666;
             background-clip: text;
