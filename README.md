@@ -127,7 +127,7 @@
         /* 金色标题 */
         .golden-title {
             font-weight: bold;
-            color: #FF6666;
+            color: #F7E7CE;
             text-shadow: 
                 0 0 10px rgba(255, 215, 0, 0.8),
                 0 0 20px rgba(255, 165, 0, 0.6);
