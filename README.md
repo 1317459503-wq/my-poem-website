@@ -50,7 +50,7 @@ body {
 }
 
 .page.active {
-    opacity: 1;
+    opacity: 0;
     transform: translateY(0);
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .line.show {
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(0);
 }
 
